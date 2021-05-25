@@ -18,7 +18,7 @@ public class Teleporter : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-
+		
 		//Check if Teleport out location has been set.
 		if (teleportOutLocation == null)
 		{
@@ -47,25 +47,14 @@ public class Teleporter : MonoBehaviour
 					{
 						collidedObject.transform.position = teleportOutLocation.transform.position;
 					}
-
-
 				}
-
-			}
+            }
 		}
 
-		//This section Draws a line from the teleporter in to the teleporter out within the editor
+	/*	//This section Draws a line from the teleporter in to the teleporter out within the editor
 		void OnDrawGizmos()
 		{
 			Gizmos.DrawLine(transform.position, teleportOutLocation.transform.position);
-		}
-
-
-
-
-
-
-
-
+		} */
 	}
 }

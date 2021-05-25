@@ -358,6 +358,7 @@ GameObject:
   - component: {fileID: 390869294}
   - component: {fileID: 390869293}
   - component: {fileID: 390869292}
+  - component: {fileID: 390869291}
   m_Layer: 0
   m_Name: Pad4a
   m_TagString: Untagged
@@ -379,6 +380,22 @@ Transform:
   m_Father: {fileID: 974495189}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &390869291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390869289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5274781a62994c847aa5b80e1b311316, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teleportOutLocation: {fileID: 907404358}
+  Red: 0
+  Green: 0
+  Blue: 1
 --- !u!65 &390869292
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -411,7 +428,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 16274a0b1d673b34fbab6b0f1704d5b5, type: 2}
+  - {fileID: 2100000, guid: 087d490067f3b5145a120009aed05664, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -973,9 +990,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleportOutLocation: {fileID: 907404358}
-  Red: 0
-  Green: 0
-  Blue: 0
+  Red: 1
+  Green: 1
+  Blue: 1
 --- !u!1 &829667741
 GameObject:
   m_ObjectHideFlags: 0
@@ -1406,6 +1423,7 @@ GameObject:
   - component: {fileID: 986500151}
   - component: {fileID: 986500150}
   - component: {fileID: 986500149}
+  - component: {fileID: 986500152}
   m_Layer: 0
   m_Name: Zone3
   m_TagString: Untagged
@@ -1489,6 +1507,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 986500147}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &986500152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986500147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24542dd67ad4e8a41bf67964455beac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Red: 1
+  Green: 0
+  Blue: 0
 --- !u!1 &1262480522
 GameObject:
   m_ObjectHideFlags: 0
@@ -1629,7 +1662,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Red: 1
   Green: 1
-  Blue: 1
+  Blue: 0
 --- !u!1 &1389012606
 GameObject:
   m_ObjectHideFlags: 0
@@ -1934,7 +1967,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 16274a0b1d673b34fbab6b0f1704d5b5, type: 2}
+  - {fileID: 2100000, guid: d3a59872a9db6024fa6f5aa08d0240eb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2073,7 +2106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleportOutLocation: {fileID: 834837506}
-  Red: 0
+  Red: 1
   Green: 0
   Blue: 0
 --- !u!1 &1581226074
@@ -2142,7 +2175,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 16274a0b1d673b34fbab6b0f1704d5b5, type: 2}
+  - {fileID: 2100000, guid: d3a59872a9db6024fa6f5aa08d0240eb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2187,7 +2220,7 @@ MonoBehaviour:
   teleportOutLocation: {fileID: 2137343809}
   Red: 1
   Green: 1
-  Blue: 1
+  Blue: 0
 --- !u!1 &1646896511
 GameObject:
   m_ObjectHideFlags: 0
@@ -2501,6 +2534,7 @@ GameObject:
   - component: {fileID: 1962332477}
   - component: {fileID: 1962332476}
   - component: {fileID: 1962332475}
+  - component: {fileID: 1962332478}
   m_Layer: 0
   m_Name: Pad1a
   m_TagString: Untagged
@@ -2584,6 +2618,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1962332473}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1962332478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962332473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5274781a62994c847aa5b80e1b311316, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teleportOutLocation: {fileID: 834837506}
+  Red: 0
+  Green: 0
+  Blue: 0
 --- !u!1 &1994779015
 GameObject:
   m_ObjectHideFlags: 0
@@ -2708,6 +2758,7 @@ GameObject:
   - component: {fileID: 2004090861}
   - component: {fileID: 2004090860}
   - component: {fileID: 2004090859}
+  - component: {fileID: 2004090862}
   m_Layer: 0
   m_Name: Zone4
   m_TagString: Untagged
@@ -2791,6 +2842,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2004090857}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2004090862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004090857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24542dd67ad4e8a41bf67964455beac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Red: 0
+  Green: 0
+  Blue: 1
 --- !u!1 &2016471521
 GameObject:
   m_ObjectHideFlags: 0
