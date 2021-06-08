@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     bool slingshotFired = false; // short bool that initiates a GUI component
     public LineTrajectory lineTraj; // Calls other script here for line rendering
 
+    
+
     public float minSlingDistance; // min required distance to draw line + allow the playr to launch themselves
     public float maxSlingDistance; // max required distance to draw line + allow the playr to launch themselves
 
@@ -92,5 +94,10 @@ public class PlayerController : MonoBehaviour
             lineTraj.EndLine();
             slingshotFired = false;
         }
+    }
+
+    public void FixedUpdate()
+    {
+        
     }
 }
