@@ -15,9 +15,9 @@ public class PlayerController : MonoBehaviour
     bool slingshotFired = false; // short bool that initiates a GUI component
     public LineTrajectory lineTraj; // Calls other script here for line rendering
 
-    float addedDirectionalForceX; // Value for storing a float 
-    float addedDirectionalForceY; // Value for storing a float 
-    float addedDirectionalForce; // Value for storing a float 
+    float addedDirectionalForce; // Stores overall force of push 
+    float addedDirectionalForceX; // Stores X value of mouseEndPoint and playerposition
+    float addedDirectionalForceY; // Stores Y      value of mouseEndPoint and playerposition 
 
     public float minSlingDistance; // min required distance to draw line + allow the playr to launch themselves
     public float maxSlingDistance; // max required distance to draw line + allow the playr to launch themselves
@@ -26,9 +26,6 @@ public class PlayerController : MonoBehaviour
     Vector3 playerPosition; // tracks player position
     Vector3 mouseEndPoint; //tracks where mouse is no longer held down
     Vector3 launchDirection; // Impulse added to player character
-
-    // Energy meter variables
-    public Slider energyMeter;
 
     private void Start()
     {
@@ -92,15 +89,16 @@ public class PlayerController : MonoBehaviour
             // minuses the mouseEndPoint by the playerPosition, then normalizes to return a smooth number that isn't a bloated vector
             launchDirection = (mouseEndPoint - playerPosition).normalized;
 
-            // multiplies the force that will be pushing the player by the x and y position of both the player and mouse position, by a flat value.
             addedDirectionalForceX = mouseEndPoint.x - playerPosition.x;
-
+            addedDirectionalForceY = mouseEndPoint.y - playerPosition.y;
+           
+            
+            // Removes negatives from force in X axis
             if (addedDirectionalForceX <= 0)
             {
                 addedDirectionalForceX = addedDirectionalForceX * -1;
             }
-
-            addedDirectionalForceY = mouseEndPoint.y - playerPosition.y;
+            // Removes negatives from force in Y axis
             if (addedDirectionalForceY <= 0)
             {
                 addedDirectionalForceY = addedDirectionalForceY * -1;
