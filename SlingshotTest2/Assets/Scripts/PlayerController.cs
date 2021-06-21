@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
     public Camera mainCam; // Uses main camera to get world position of mouse clicks later on
     public Rigidbody playerCharacter; // reference to player rigidbody
     public float power = 10f; // base number slings are calculated too
-    public bool invertControls; // Allows to invert push values for playtesting
     public bool canSling; // checks if its valid to sling
     public LineTrajectory lineTraj; // Calls other script here for line rendering
 

@@ -9,9 +9,11 @@ public class LineTrajectory : MonoBehaviour
 
     private void Awake()
     {
+        // declares wanted linerenderer
         wantedLineRenderer = GetComponent<LineRenderer>();
     }
 
+    // function that sets up where the initial draw points are.
     public void RenderLine(Vector3 mouseStartPoint, Vector3 mouseEndPoint)
     {
         wantedLineRenderer.positionCount = 2;
@@ -22,6 +24,7 @@ public class LineTrajectory : MonoBehaviour
         wantedLineRenderer.SetPositions(points);
     }
 
+    // culls rendered line
     public void EndLine()
     {
         wantedLineRenderer.positionCount = 0;
