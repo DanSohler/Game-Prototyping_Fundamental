@@ -55,8 +55,6 @@ public class EnergyMeterScript : MonoBehaviour
         {
             PlayerController.instance.requiredPower = false;
             fillAreaImage.color = invalidPowerAmount;
-            Debug.Log("Insufficient Power");
-
         }
     }
 
