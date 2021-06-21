@@ -11,21 +11,30 @@ public class PlayerController : MonoBehaviour
     public Rigidbody playerCharacter; // reference to player rigidbody
     public float power = 10f; // base number slings are calculated too
     public bool invertControls; // Allows to invert push values for playtesting
-    bool canSling; // checks if its valid to sling
-    bool slingshotFired = false; // short bool that initiates a GUI component
+    public bool canSling; // checks if its valid to sling
     public LineTrajectory lineTraj; // Calls other script here for line rendering
 
-    float addedDirectionalForce; // Stores overall force of push 
+    public float addedDirectionalForce; // Stores overall force of push 
     float addedDirectionalForceX; // Stores X value of mouseEndPoint and playerposition
-    float addedDirectionalForceY; // Stores Y      value of mouseEndPoint and playerposition 
+    float addedDirectionalForceY; // Stores Y value of mouseEndPoint and playerposition 
 
     public float minSlingDistance; // min required distance to draw line + allow the playr to launch themselves
     public float maxSlingDistance; // max required distance to draw line + allow the playr to launch themselves
+
+    public bool requiredPower = true;
+
 
     Vector3 currentMousePosition; // Actively tracked mouse position
     Vector3 playerPosition; // tracks player position
     Vector3 mouseEndPoint; //tracks where mouse is no longer held down
     Vector3 launchDirection; // Impulse added to player character
+
+    public static PlayerController instance;
+
+    private void Awake()
+    {
+       instance = this;
+    }
 
     private void Start()
     {
@@ -61,7 +70,7 @@ public class PlayerController : MonoBehaviour
 
 
         // If its true, make the line blue
-        // If its false, make the line red
+        // If else, make the line red
         if (canSling == true)
         {
             lineTraj.wantedLineRenderer.startColor = new Color(255, 255, 255);
@@ -70,7 +79,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             lineTraj.wantedLineRenderer.startColor = new Color(255, 255, 255);
-            lineTraj.wantedLineRenderer.endColor = new Color(255, 10, 0);
+            lineTraj.wantedLineRenderer.endColor = new Color(255, 0, 0);
         }
 
         // While mouse is held down, render line between player position and currentMousePositions
@@ -86,13 +95,13 @@ public class PlayerController : MonoBehaviour
             // takes the end point the mouse cursor was at, used for calculating angle of impulse and distance
             mouseEndPoint = mainCam.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, 12));
 
-            // minuses the mouseEndPoint by the playerPosition, then normalizes to return a smooth number that isn't a bloated vector
+            // minuses the mouseEndPoint by the playerPosition, then normalizes to return a smooth number that isn't a bloated vector (x and y seperate)
             launchDirection = (mouseEndPoint - playerPosition).normalized;
 
             addedDirectionalForceX = mouseEndPoint.x - playerPosition.x;
             addedDirectionalForceY = mouseEndPoint.y - playerPosition.y;
-           
-            
+
+
             // Removes negatives from force in X axis
             if (addedDirectionalForceX <= 0)
             {
@@ -106,18 +115,15 @@ public class PlayerController : MonoBehaviour
 
             addedDirectionalForce = (addedDirectionalForceX + addedDirectionalForceY) * power;
 
-            if (canSling == true)
+            if (canSling == true && requiredPower == true)
             {
                 playerCharacter.AddForce(launchDirection * addedDirectionalForce, ForceMode.Impulse);
-
-                Debug.Log("addedDirectionalForce = " + addedDirectionalForce);
-
-                Debug.Log("launchDirection = " + launchDirection);
-                slingshotFired = true;
+                addedDirectionalForce = addedDirectionalForce * 2;
+                EnergyMeterScript.instance.DrainPower(addedDirectionalForce);
             }
             // will end line even if canSling is set to false
             lineTraj.EndLine();
-            slingshotFired = false;
         }
     }
+
 }
