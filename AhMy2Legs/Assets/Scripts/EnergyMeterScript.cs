@@ -37,7 +37,8 @@ public class EnergyMeterScript : MonoBehaviour
 
     }
 
-    // Function that takes 'addedDirectionalForce' from 'playerController' and uses it to remove a amount form the meter. Also has a bool which can prevent firing of the slingshot and colour changes
+    // Function that takes 'addedDirectionalForce' from 'playerController' and uses it to remove a amount
+    // from the meter. Also has a bool which can prevent firing of the slingshot and colour changes
     public void DrainPower(float amount)
     {
         if (currentPower - amount >= PlayerControllerScript.instance.addedDirectionalForce)
