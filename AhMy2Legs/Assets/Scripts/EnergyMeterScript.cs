@@ -7,7 +7,7 @@ public class EnergyMeterScript : MonoBehaviour
 {
     public Slider energyMeter; // Calls slider
     public Image fillAreaImage; // Calls fill area
-
+    
     Color validPowerAmount; // Sets fill area to blue
     Color invalidPowerAmount; // Sets fill area to red
 
@@ -19,7 +19,7 @@ public class EnergyMeterScript : MonoBehaviour
 
     public static EnergyMeterScript instance; // instances the script for 'PlayerController' to use
 
-    // Prepares an instance in 'PlayerController' to subtract power from the slider
+    // Prepares an instance in 'PlayerControllerScript' to subtract power from the slider
     private void Awake()
     {
         instance = this;
@@ -40,7 +40,7 @@ public class EnergyMeterScript : MonoBehaviour
     // Function that takes 'addedDirectionalForce' from 'playerController' and uses it to remove a amount form the meter. Also has a bool which can prevent firing of the slingshot and colour changes
     public void DrainPower(float amount)
     {
-        if (currentPower - amount >= PlayerController.instance.addedDirectionalForce)
+        if (currentPower - amount >= PlayerControllerScript.instance.addedDirectionalForce)
         {
             currentPower -= amount;
             energyMeter.value = currentPower;
@@ -53,7 +53,7 @@ public class EnergyMeterScript : MonoBehaviour
         }
         else
         {
-            PlayerController.instance.requiredPower = false;
+            PlayerControllerScript.instance.requiredPower = false;
             fillAreaImage.color = invalidPowerAmount;
         }
     }
@@ -63,7 +63,7 @@ public class EnergyMeterScript : MonoBehaviour
     {
         if (currentPower >= 30)
         {
-            PlayerController.instance.requiredPower = true;
+            PlayerControllerScript.instance.requiredPower = true;
             fillAreaImage.color = validPowerAmount;
         }
     }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(LineRenderer))]
-public class LineTrajectory : MonoBehaviour
+public class LineTrajectoryScript : MonoBehaviour
 {
     public LineRenderer wantedLineRenderer;
 
