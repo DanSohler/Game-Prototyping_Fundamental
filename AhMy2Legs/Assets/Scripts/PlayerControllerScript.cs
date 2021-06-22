@@ -128,8 +128,6 @@ public class PlayerControllerScript : MonoBehaviour
 
             // updates inputTracker UI element with amount of 'valid' inputs
             inputTrackingText.text = ""+inputTracker;
-
-
         }
     }
 
